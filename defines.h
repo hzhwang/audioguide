@@ -26,4 +26,5 @@
 // Speech Synthesizer configureation
 #define SPEECHLANGUAGE     @"zh-TW"
 #define SPEECHSPEED        0.2f
+
 #endif

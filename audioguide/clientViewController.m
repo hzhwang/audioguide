@@ -18,7 +18,7 @@
 #import "defines.h"
 
 
-@interface clientViewController ()<ESTIndoorLocationManagerDelegate,AVSpeechSynthesizerDelegate> {
+@interface clientViewController ()<ESTIndoorLocationManagerDelegate,AVSpeechSynthesizerDelegate,AVAudioSessionDelegate, AVAudioRecorderDelegate,AVAudioPlayerDelegate> {
     IBOutlet UILabel *descriptionLabel;
     
     CGPoint currentPosition;
@@ -30,6 +30,7 @@
 @property (nonatomic, strong) ESTLocation *location;
 @property (nonatomic, strong) IBOutlet ESTIndoorLocationView *indoorLocationView;
 @property (nonatomic, strong) NSMutableDictionary *audioItem;
+@property (nonatomic) AVAudioPlayer* player;
 
 
 - (instancetype)initWithLocation:(ESTLocation *)location;
@@ -54,11 +55,11 @@
     self.indoorLocationView.traceColor              = [UIColor blueColor];
     self.indoorLocationView.traceThickness          = 2;
     self.indoorLocationView.wallLengthLabelsColor   = [UIColor blackColor];
-
+    
     
     // You can change the avatar using positionImage property of ESTIndoorLocationView class.
     // self.indoorLocationView.positionImage = [UIImage imageNamed:@"name_of_your_image"];
-
+    
     
     
     [self.indoorLocationView drawLocation:self.location];
@@ -140,6 +141,30 @@
     
 }
 
+- (void)play:(NSString*)filename {
+    NSError *error;
+    NSArray *filePaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES);
+    NSString *documentDir = [filePaths objectAtIndex:0];
+    NSString *path = [documentDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.caf",filename]];
+    
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:path];
+    
+    if(fileExists==NO)return;
+    
+    NSURL *recordingURL = [NSURL fileURLWithPath:path];
+    
+    
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:recordingURL error:&error];
+    
+    [self.player setNumberOfLoops:0];
+    self.player.delegate = (id)self;
+    [self.player setVolume:1.0f];
+    
+    [self.player prepareToPlay];
+    [self.player play];
+    isDuringSpeech=YES;
+    
+}
 
 #pragma mark - ESTIndoorLocationManager delegate
 
@@ -168,23 +193,35 @@
             if(replayInterval>0 || isDuringSpeech==YES) {
                 return;
             }
-
-            // Speech
-            [self speech:[dic objectForKey:@"speechtext"]];
+            
+            // Check if audio file is existed
+            
+            if([self isFileExists:[dic objectForKey:@"id"]]) {
+                [self play:[dic objectForKey:@"id"]];
+            } else {
+                // Speech
+                [self speech:[dic objectForKey:@"speechtext"]];
+                
+            }
+            
+            
             
             // setting replay interval, prevent repeat speaking
             replayInterval=REPLAYINTERVAL;
-
-            
-            //NSLog(@"%@ (%@,%@) : %f %@ %@",[dic objectForKey:@"location"], [dic objectForKey:@"x"],[dic objectForKey:@"y"],[self distanceBetween:currentPosition and:point],[dic objectForKey:@"speechtext"],[dic objectForKey:@"description"]);
-
-            
-            
-            
             
         }
     }
+}
+
+
+- (BOOL)isFileExists:(NSString*)filename {
+    NSArray *filePaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES);
+    NSString *documentDir = [filePaths objectAtIndex:0];
+    NSString *path = [documentDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.caf",filename]];
     
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:path];
+    
+    return fileExists;
     
 }
 - (void)indoorLocationManager:(ESTIndoorLocationManager *)manager
@@ -201,11 +238,13 @@
     NSLog(@"%@", error.localizedDescription);
 }
 
-#pragma mark AVSpeechSynthesizer delegate
-- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer
- didFinishSpeechUtterance:(AVSpeechUtterance *)utterance {
+#pragma mark AVAudioPlayer delegate
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    isDuringSpeech=NO;
+}
 
-    NSLog(@"ok");
+#pragma mark AVSpeechSynthesizer delegate
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance *)utterance {
     isDuringSpeech=NO;
 }
 @end

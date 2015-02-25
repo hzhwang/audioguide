@@ -7,8 +7,28 @@
 //
 
 #import "noteViewController.h"
+#import "ESTLocation.h"
+#import "defines.h"
 
-@interface noteViewController ()
+@interface noteViewController ()<AVAudioSessionDelegate, AVAudioRecorderDelegate,AVAudioPlayerDelegate,UITableViewDelegate, UITableViewDataSource> {
+    
+    AVAudioRecorder *recorder;
+    BOOL isRecording;
+    BOOL isPlaying;
+    UIBarButtonItem *addBarButton;
+    
+    NSString *index;
+    NSString *postition;
+    BOOL willSave;
+}
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *dataSourceMenuItem;
+@property (nonatomic, strong) NSMutableArray *viewerSourceMenuItem;
+@property (nonatomic) ESTPoint *point;
+
+@property (nonatomic) AVAudioPlayer* player;
 
 @end
 
@@ -22,10 +42,35 @@
     index=_key;
 }
 
+- (void)record:(NSString*)filename {
+    NSError *error;
+    NSArray *filePaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                             NSUserDomainMask,YES);
+    NSString *documentDir = [filePaths objectAtIndex:0];
+    NSString *path = [documentDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.caf",filename]];
+    NSURL *recordingURL = [NSURL fileURLWithPath:path];
+    NSDictionary *settings = [NSDictionary dictionaryWithObjectsAndKeys:
+                              [NSNumber numberWithFloat: 16000.0], AVSampleRateKey,
+                              [NSNumber numberWithInt: kAudioFormatLinearPCM], AVFormatIDKey,
+                              [NSNumber numberWithInt: 1], AVNumberOfChannelsKey,
+                              [NSNumber numberWithInt:16], AVLinearPCMBitDepthKey,
+                              [NSNumber numberWithBool:NO], AVLinearPCMIsBigEndianKey,
+                              [NSNumber numberWithBool:NO], AVLinearPCMIsFloatKey,
+                              nil];
+    
+    recorder = [[AVAudioRecorder alloc]initWithURL:recordingURL settings:settings error:&error];
+    if(error){
+        NSLog(@"error = %@",error);
+    }
+    [recorder prepareToRecord];
+    recorder.delegate = self;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
+
 - (void)viewWillDisappear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     
@@ -49,7 +94,25 @@
     NSArray  *position_xy=[postion componentsSeparatedByString:@","];
     NSString *texttospeech=[(UITextField*)[self.view viewWithTag:2003] text];
     NSString *description=[(UITextField*)[self.view viewWithTag:2004] text];
+
     
+    //Patch: Prevent TableCell not initalized.
+    if(location ==nil) {
+        location=@"";
+    }
+    
+    if(description ==nil) {
+        position_xy=@[@"0.0f",@"0.0f"];
+    }
+    
+    if(texttospeech ==nil) {
+        texttospeech=@"";
+    }
+    if(description ==nil) {
+        description=@"";
+    }
+    
+
     NSMutableDictionary *d=[NSMutableDictionary dictionaryWithObjects:@[index,location,position_xy[0],position_xy[1],texttospeech,description]
                                                               forKeys:@[@"id",@"location",@"x",@"y",@"speechtext",@"description"]];
     
@@ -63,15 +126,20 @@
 - (void)cancel {
     willSave=NO;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    isRecording=NO;
+    isPlaying=NO;
     willSave=YES;
     
     // Recorder initalize
     
     NSError *sessionError = nil;
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:&sessionError];
+    [[AVAudioSession sharedInstance]  overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:&sessionError];
+
     [[AVAudioSession sharedInstance] setActive:YES error:&sessionError];
     [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
         if (granted) {
@@ -87,56 +155,11 @@
     self.navigationItem.rightBarButtonItem = addBarButton;
     
     self.dataSourceMenuItem=[[NSMutableArray alloc]init];
-    
     [self.dataSourceMenuItem addObject:@"Location"];
     [self.dataSourceMenuItem addObject:@"Position"];
     [self.dataSourceMenuItem addObject:@"Audio Recoding"];
     [self.dataSourceMenuItem addObject:@"Text to sppech"];
     [self.dataSourceMenuItem addObject:@"Description"];
-    
-    
-    
-    NSError *error;
-    
-    
-    
-    
-    // Do any additional setup after loading the view.
-    // 録音ファイルパス
-    NSArray *filePaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                             NSUserDomainMask,YES);
-    NSString *documentDir = [filePaths objectAtIndex:0];
-    NSString *path = [documentDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.caf",@"100"]];
-    NSURL *recordingURL = [NSURL fileURLWithPath:path];
-    
-    // 録音設定
-    NSDictionary *settings = [NSDictionary dictionaryWithObjectsAndKeys:
-                              [NSNumber numberWithFloat: 16000.0], AVSampleRateKey,
-                              [NSNumber numberWithInt: kAudioFormatLinearPCM], AVFormatIDKey,
-                              
-                              //                              [NSNumber numberWithInt: kAudioFormatMPEG4AAC], AVFormatIDKey,
-                              [NSNumber numberWithInt: 1], AVNumberOfChannelsKey,
-                              [NSNumber numberWithInt:16], AVLinearPCMBitDepthKey,
-                              [NSNumber numberWithBool:NO], AVLinearPCMIsBigEndianKey,
-                              [NSNumber numberWithBool:NO], AVLinearPCMIsFloatKey,
-                              nil];
-    // biggest:kAudioFormatLinearPCM
-    // smallest:kAudioFormatMPEG4AAC
-    // インスタンス生成
-    
-    
-    
-    
-    
-    
-    recorder = [[AVAudioRecorder alloc]initWithURL:recordingURL settings:settings error:&error];
-    
-    if(error){
-        NSLog(@"error = %@",error);
-    }
-    // 録音ファイルの準備(すでにファイルが存在していれば上書きしてくれる)
-    [recorder prepareToRecord];
-    recorder.delegate = self;
     
     
 }
@@ -155,12 +178,6 @@
  // Pass the selected object to the new view controller.
  }
  */
-- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
-    UIProgressView *pv=(UIProgressView*)[self.view viewWithTag:1020];
-    pv.hidden=YES;
-    //self.isPlaying=NO;
-    
-}
 
 - (void)play:(NSString*)filename {
     NSError *error;
@@ -169,43 +186,90 @@
     NSString *path = [documentDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.caf",filename]];
     
     BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:path];
+    
     if(fileExists==NO)return;
     
     NSURL *recordingURL = [NSURL fileURLWithPath:path];
     
     
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:recordingURL error:&error];
+
     [self.player setNumberOfLoops:0];
     self.player.delegate = (id)self;
     [self.player setVolume:1.0f];
     
     [self.player prepareToPlay];
     [self.player play];
-    
-    self.soundLength=self.player.duration;
-    //self.isPlaying=YES;
-    self.playTime=0.0f;
-    UIProgressView *pv=(UIProgressView*)[self.view viewWithTag:1020];
-    pv.hidden=NO;
-    
+}
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+
+    [[(UIButton*)self.view viewWithTag:5001] setHidden:NO];  // Delete Button
+    [[(UIButton*)self.view viewWithTag:5002] setHidden:NO];  // Record Button
+    [[(UIButton*)self.view viewWithTag:5003] setHidden:NO];   // Play   Button
+    [(UIButton*)[self.view viewWithTag:5003] setTitle:@"PLAY" forState:UIControlStateNormal]; // Record Button
+
 }
 
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag {
     
 }
+
 - (void)playAudio:(id)sender {
-    [self play:index];
+    if(isPlaying==NO) {
+        [self play:index];
+        [[(UIButton*)self.view viewWithTag:5001] setHidden:YES];  // Delete Button
+        [[(UIButton*)self.view viewWithTag:5002] setHidden:YES];  // Record Button
+        [[(UIButton*)self.view viewWithTag:5003] setHidden:NO];   // Play   Button
+        [(UIButton*)[self.view viewWithTag:5003] setTitle:@"STOP" forState:UIControlStateNormal]; // Record Button
+        isPlaying=YES;
+    } else {
+        [[(UIButton*)self.view viewWithTag:5001] setHidden:NO];  // Delete Button
+        [[(UIButton*)self.view viewWithTag:5002] setHidden:NO];  // Record Button
+        [[(UIButton*)self.view viewWithTag:5003] setHidden:NO];   // Play   Button
+        [(UIButton*)[self.view viewWithTag:5003] setTitle:@"PLAY" forState:UIControlStateNormal]; // Record Button
+        [self.player stop];
+
+        isPlaying=NO;
+    }
+
+
 }
 - (void)recordAudio:(id)sender {
-    if(recorder.isRecording==YES) {
+
+    if(isRecording==YES ) {
         [recorder stop];
+        
+        [[(UIButton*)self.view viewWithTag:5001] setHidden:NO];  // Delete Button
+        [[(UIButton*)self.view viewWithTag:5002] setHidden:NO]; // Record Button
+        [(UIButton*)[self.view viewWithTag:5002] setTitle:@"RECORD" forState:UIControlStateNormal]; // Record Button
+
+
+        [[(UIButton*)self.view viewWithTag:5003] setHidden:NO];  // Play   Button
+        isRecording=NO;
     } else {
+        [self record:index];
         [recorder record];
+        [[(UIButton*)self.view viewWithTag:5001] setHidden:YES]; // Delete Button
+        [[(UIButton*)self.view viewWithTag:5002] setHidden:NO];  // Record Button
+        [(UIButton*)[self.view viewWithTag:5002] setTitle:@"STOP" forState:UIControlStateNormal]; // Record Button
+
+        [[(UIButton*)self.view viewWithTag:5003] setHidden:YES]; // Play   Button
+
+        isRecording=YES;
     }
 }
-
 - (void)deleteAudio:(id)sender{
+    NSError *error=nil;
+    NSArray *filePaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES);
+    NSString *documentDir = [filePaths objectAtIndex:0];
+    NSString *path = [documentDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.caf",index]];
     
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:path];
+
+    if(fileExists){
+        [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
+    }
 }
 
 
@@ -219,11 +283,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [self.dataSourceMenuItem count];
 }
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *CellIdentifier = [NSString stringWithFormat:@"CellIdentifier_%zd_%zd",indexPath.row, indexPath.section];
     
@@ -233,7 +295,7 @@
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSData *data = [defaults objectForKey:AUDIO_STORAGE_KEY];
     NSMutableDictionary *audioItem=[NSMutableDictionary dictionaryWithDictionary:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
-    NSMutableDictionary *item;
+    NSMutableDictionary *item=[NSMutableDictionary dictionary];
     
     if([audioItem objectForKey:index]==nil) {
         isDataExisted=NO;
@@ -345,11 +407,6 @@
         
         
     }
-    
-    
-    
-    //cell.imageView.image = [UIImage imageNamed:self.dataSourceIcon[indexPath.row]];
-    
     return cell;
 }
 

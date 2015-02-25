@@ -9,17 +9,30 @@
 #import "listViewController.h"
 #import "noteViewController.h"
 #import "defines.h"
+
+@interface listViewController() <UITableViewDelegate, UITableViewDataSource> {
+    UIBarButtonItem *editBarButton;
+    NSInteger selectedRow;
+}
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSMutableDictionary *audioItem;
+
+@property (nonatomic, strong) NSMutableArray *dataSourceItem;
+@property (nonatomic, strong) NSMutableArray *dataSourceIndex;
+@end
+
+
 @implementation listViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     editBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editSwitch)];
     self.navigationItem.rightBarButtonItem = editBarButton;
-
-    selectedRow=-1;
-    [self loadData];
     
+    selectedRow=-1;
 }
+
 - (void)editSwitch {
     if([self.tableView isEditing]==YES) {
         [self.tableView setEditing:NO animated:YES];
@@ -27,19 +40,21 @@
         [self.tableView setEditing:YES animated:YES];
     }
 }
+
 - (void)loadData {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSData *data = [defaults objectForKey:AUDIO_STORAGE_KEY];
     self.audioItem=[NSMutableDictionary dictionaryWithDictionary:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
-    
 }
+
+
 - (void)saveData {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.audioItem];
     [defaults setObject:data forKey:AUDIO_STORAGE_KEY];
-    [defaults setBool:YES forKey:@"bootstraps"];
     [defaults synchronize];
 }
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self loadData];
@@ -51,6 +66,7 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
+
 - (void)viewWillDisappear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [super viewWillDisappear:animated];
@@ -97,13 +113,12 @@
 }
 - (void)tableView:(UITableView*)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath{
     if(editingStyle == UITableViewCellEditingStyleDelete){
-//        [self.dataSourceItem removeObjectAtIndex:indexPath.row];
         [self.audioItem removeObjectForKey:[[self.audioItem allKeys] objectAtIndex:indexPath.row]];
         [self.tableView reloadData];
         [self saveData];
         
     }else if(editingStyle == UITableViewCellEditingStyleInsert){
-        // Insert時の処理をここに書く
+
     }
 }
 
@@ -114,17 +129,12 @@
     
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
-    //    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     NSMutableDictionary *d =[self.audioItem objectForKey:[[self.audioItem allKeys] objectAtIndex:indexPath.row]];
     
     cell.textLabel.text= [d objectForKey:@"location"];
     cell.detailTextLabel.text=[d objectForKey:@"description"];
-
     
-    
-    
-    //[self.dataSourceItem objectAtIndex:indexPath.row];
 
     return cell;
 }

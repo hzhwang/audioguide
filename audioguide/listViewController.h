@@ -8,16 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface listViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
-    UIBarButtonItem *editBarButton;
-    
-    NSInteger selectedRow;
-    
-}
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSMutableDictionary *audioItem;
-
-@property (nonatomic, strong) NSMutableArray *dataSourceItem;
-@property (nonatomic, strong) NSMutableArray *dataSourceIndex;
+@interface listViewController : UIViewController
 
 @end

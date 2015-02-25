@@ -6,15 +6,30 @@
 //  Copyright (c) 2015 Company. All rights reserved.
 //
 
+
+#import "ESTIndoorLocationManager.h"
+#import "ESTLocation.h"
+#import "ESTIndoorLocationView.h"
+#import "ESTLocationBuilder.h"
+#import "ESTConfig.h"
+#import "defines.h"
+
 #import "buildViewController.h"
 #import "noteViewController.h"
 
-@interface buildViewController ()<ESTIndoorLocationManagerDelegate>
+@interface buildViewController ()<ESTIndoorLocationManagerDelegate> {
+    IBOutlet UILabel *descriptionLabel;
+    ESTPoint *point;
+    UIBarButtonItem *listBarButton;
+}
 
+@property (nonatomic, strong) IBOutlet ESTIndoorLocationView *indoorLocationView;
 @property (nonatomic, strong) ESTIndoorLocationManager *manager;
 @property (nonatomic, strong) ESTLocation *location;
+@property (nonatomic, strong) IBOutlet UIButton *addBtn;
 
 @end
+
 @implementation buildViewController
 
 - (instancetype)initWithLocation:(ESTLocation *)location {
@@ -22,7 +37,6 @@
     if (self) {
         self.manager = [[ESTIndoorLocationManager alloc] init];
         self.manager.delegate = self;
-        
         self.location = location;
     }
     
@@ -35,10 +49,9 @@
     NSString *unixTime = [[NSString alloc] initWithFormat:@"%0.0f", oldTime];
     return unixTime;
 }
+
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    
     if ([[segue identifier] isEqualToString:@"list"]) {
         
     } else {
@@ -46,7 +59,6 @@
         [vc setKey:[self timestamp]];
         [vc setPosition:[NSString stringWithFormat:@"%.2f,%.2f",
                          point.x, point.y]];
-        
     }
     
     // Get the new view controller using [segue destinationViewController].
@@ -96,17 +108,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    self.addBtn.layer.borderWidth = 2.0;
+    self.addBtn.layer.masksToBounds = YES;
+    self.addBtn.layer.cornerRadius = 8.0;
+    self.addBtn.layer.borderColor = [UIColor colorWithRed:51.0f/255.0f green:76.0f/255.0f blue:155.0f/255.0f alpha:1.0f].CGColor;
+
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
     
     listBarButton = [[UIBarButtonItem alloc] initWithTitle:@"List" style:UIBarButtonItemStylePlain target:self action:@selector(list)];
     self.navigationItem.rightBarButtonItem = listBarButton;
-    
-    
-    
-    [ESTConfig setupAppID:@"app_0g33afn370" andAppToken:@"4d30f7bfd9eb348bc0cf2563cdf7f286"];
-    
-    
-    //    BOOL auth=[ESTConfig isAuthorized];
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"location" ofType:@"json"];
     NSString *content = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
@@ -138,7 +152,7 @@
     
     point=position;
 
-    lbl.text=     [NSString stringWithFormat:@"x: %.2f  y: %.2f α: %.2f",
+    descriptionLabel.text=     [NSString stringWithFormat:@"x: %.2f  y: %.2f α: %.2f",
                    position.x, position.y, position.orientation];
     
     [self.indoorLocationView updatePosition:position];

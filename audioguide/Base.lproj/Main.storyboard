@@ -70,10 +70,10 @@
             </objects>
             <point key="canvasLocation" x="-2189" y="1956"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="a5j-ZR-psi">
             <objects>
-                <viewController id="Jae-1X-V9A" sceneMemberID="viewController">
+                <viewController id="Jae-1X-V9A" customClass="mainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gQp-Id-QYx"/>
                         <viewControllerLayoutGuide type="bottom" id="B5L-7w-3uZ"/>
@@ -89,6 +89,7 @@
                                     <constraint firstAttribute="width" constant="160" id="yZ5-sS-jPf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="tintColor" red="0.20000000000000001" green="0.29803921568627451" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Use as Visitor">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -109,7 +110,8 @@
                                     <constraint firstAttribute="width" constant="160" id="iXV-HY-Ts9"/>
                                     <constraint firstAttribute="height" constant="56" id="mRA-na-NWL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <color key="tintColor" red="0.20000000000000001" green="0.29803921568627451" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Use as Planner">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -141,6 +143,10 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="ZA8-f8-5zd"/>
+                    <connections>
+                        <outlet property="plannerBtn" destination="pi2-0g-5uO" id="xvK-gf-fWC"/>
+                        <outlet property="visitorBtn" destination="0Br-pj-6po" id="gLq-cv-o6v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8e-lM-WwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -196,7 +202,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oM-ku-7rc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oM-ku-7rc">
                                 <rect key="frame" x="150" y="336" width="300" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="401" id="CN5-cM-eub"/>
@@ -237,6 +243,7 @@
                                     <constraint firstAttribute="height" constant="36" id="sLb-vE-PhX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="tintColor" red="0.20000000000000001" green="0.29803921568627451" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Add Voice Note"/>
                                 <connections>
                                     <segue destination="DAd-uS-oL0" kind="show" identifier="note" id="OIM-QD-yFz"/>
@@ -272,8 +279,9 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="addBtn" destination="Icv-tr-s8U" id="9hj-vB-go5"/>
+                        <outlet property="descriptionLabel" destination="9oM-ku-7rc" id="Nwc-F5-PTK"/>
                         <outlet property="indoorLocationView" destination="ebV-Pr-JBe" id="2PW-Nt-QEm"/>
-                        <outlet property="lbl" destination="9oM-ku-7rc" id="2jb-0l-x7V"/>
                         <segue destination="FQg-Te-330" kind="show" identifier="list" id="w6z-pA-me2"/>
                     </connections>
                 </viewController>
@@ -343,6 +351,6 @@
         <image name="headphone.png" width="160" height="160"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3Zz-eJ-gdi"/>
+        <segue reference="OIM-QD-yFz"/>
     </inferredMetricsTieBreakers>
 </document>
