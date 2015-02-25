@@ -1,0 +1,806 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A80F96F91A87286600BD12C2 /* noteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A80F96F81A87286600BD12C2 /* noteViewController.m */; };
+		A80F97021A89A19C00BD12C2 /* listViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A80F97011A89A19C00BD12C2 /* listViewController.m */; };
+		A82CBAA51A98C73D00588454 /* clientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A82CBAA41A98C73D00588454 /* clientViewController.m */; };
+		A82E7D571A84E51E000A27AE /* buildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A82E7D561A84E51E000A27AE /* buildViewController.m */; };
+		A83247F31A7C543700E80DED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A83247F21A7C543700E80DED /* main.m */; };
+		A83247F61A7C543700E80DED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A83247F51A7C543700E80DED /* AppDelegate.m */; };
+		A83247FC1A7C543700E80DED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A83247FA1A7C543700E80DED /* Main.storyboard */; };
+		A83247FE1A7C543700E80DED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A83247FD1A7C543700E80DED /* Images.xcassets */; };
+		A83248011A7C543700E80DED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83247FF1A7C543700E80DED /* LaunchScreen.xib */; };
+		A832480D1A7C543800E80DED /* audioguideTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A832480C1A7C543800E80DED /* audioguideTests.m */; };
+		A83248171A7C556300E80DED /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83248161A7C556300E80DED /* AVFoundation.framework */; };
+		A83248621A7C921800E80DED /* libEstimoteIndoorSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A83248231A7C921800E80DED /* libEstimoteIndoorSDK.a */; };
+		A83248631A7C921800E80DED /* 5a.mov in Resources */ = {isa = PBXBuildFile; fileRef = A83248251A7C921800E80DED /* 5a.mov */; };
+		A83248641A7C921800E80DED /* 5b.mov in Resources */ = {isa = PBXBuildFile; fileRef = A83248261A7C921800E80DED /* 5b.mov */; };
+		A83248651A7C921800E80DED /* 8a.mov in Resources */ = {isa = PBXBuildFile; fileRef = A83248271A7C921800E80DED /* 8a.mov */; };
+		A83248661A7C921800E80DED /* 8b.mov in Resources */ = {isa = PBXBuildFile; fileRef = A83248281A7C921800E80DED /* 8b.mov */; };
+		A83248671A7C921800E80DED /* 8c.mov in Resources */ = {isa = PBXBuildFile; fileRef = A83248291A7C921800E80DED /* 8c.mov */; };
+		A83248681A7C921800E80DED /* 5a_first_frame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A832482B1A7C921800E80DED /* 5a_first_frame@2x.png */; };
+		A83248691A7C921800E80DED /* 5b_first_frame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A832482C1A7C921800E80DED /* 5b_first_frame@2x.png */; };
+		A832486A1A7C921800E80DED /* 8a_first_frame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A832482D1A7C921800E80DED /* 8a_first_frame@2x.png */; };
+		A832486B1A7C921800E80DED /* 8b_first_frame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A832482E1A7C921800E80DED /* 8b_first_frame@2x.png */; };
+		A832486C1A7C921800E80DED /* 8c_first_frame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A832482F1A7C921800E80DED /* 8c_first_frame@2x.png */; };
+		A832486D1A7C921800E80DED /* beacon_grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A83248301A7C921800E80DED /* beacon_grey@2x.png */; };
+		A832486E1A7C921800E80DED /* beaconblueberry@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A83248311A7C921800E80DED /* beaconblueberry@2x.png */; };
+		A832486F1A7C921800E80DED /* beaconBlueberrySmall.png in Resources */ = {isa = PBXBuildFile; fileRef = A83248321A7C921800E80DED /* beaconBlueberrySmall.png */; };
+		A83248701A7C921800E80DED /* beaconBlueberrySmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A83248331A7C921800E80DED /* beaconBlueberrySmall@2x.png */; };
+		A83248711A7C921800E80DED /* beacongrey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A83248341A7C921800E80DED /* beacongrey@2x.png */; };
+		A83248721A7C921800E80DED /* beaconGreySmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A83248351A7C921800E80DED /* beaconGreySmall@2x.png */; };
+		A83248731A7C921800E80DED /* beaconicy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A83248361A7C921800E80DED /* beaconicy@2x.png */; };
+		A83248741A7C921800E80DED /* beaconIcySmall.png in Resources */ = {isa = PBXBuildFile; fileRef = A83248371A7C921800E80DED /* beaconIcySmall.png */; };
+		A83248751A7C921800E80DED /* beaconIcySmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A83248381A7C921800E80DED /* beaconIcySmall@2x.png */; };
+		A83248761A7C921800E80DED /* beaconmint@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A83248391A7C921800E80DED /* beaconmint@2x.png */; };
+		A83248771A7C921800E80DED /* beaconMintSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = A832483A1A7C921800E80DED /* beaconMintSmall.png */; };
+		A83248781A7C921800E80DED /* beaconMintSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A832483B1A7C921800E80DED /* beaconMintSmall@2x.png */; };
+		A83248791A7C921800E80DED /* indoor_error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A832483C1A7C921800E80DED /* indoor_error@2x.png */; };
+		A832487A1A7C921800E80DED /* instructions@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A832483D1A7C921800E80DED /* instructions@2x.png */; };
+		A832487B1A7C921800E80DED /* navigation_guy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A832483E1A7C921800E80DED /* navigation_guy@2x.png */; };
+		A832487C1A7C921800E80DED /* screen8_beacon_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A832483F1A7C921800E80DED /* screen8_beacon_blue@2x.png */; };
+		A832487D1A7C921800E80DED /* screen8_beacon_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A83248401A7C921800E80DED /* screen8_beacon_gray@2x.png */; };
+		A832487E1A7C921800E80DED /* screen8_beacon_gray_trans@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A83248411A7C921800E80DED /* screen8_beacon_gray_trans@2x.png */; };
+		A832487F1A7C921800E80DED /* screen8_beacon_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A83248421A7C921800E80DED /* screen8_beacon_green@2x.png */; };
+		A83248801A7C921800E80DED /* screen8_beacon_purple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A83248431A7C921800E80DED /* screen8_beacon_purple@2x.png */; };
+		A83248811A7C921800E80DED /* tick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A83248441A7C921800E80DED /* tick@2x.png */; };
+		A83248821A7C921800E80DED /* welcome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A83248451A7C921800E80DED /* welcome@2x.png */; };
+		A83248831A7C921800E80DED /* SixBeaconsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83248461A7C921800E80DED /* SixBeaconsView.xib */; };
+		A83248841A7C921800E80DED /* wall_bump.wav in Resources */ = {isa = PBXBuildFile; fileRef = A83248471A7C921800E80DED /* wall_bump.wav */; };
+		A83248851A7C921800E80DED /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A83248611A7C921800E80DED /* libEstimoteSDK.a */; };
+		A83248871A7C923B00E80DED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83248861A7C923B00E80DED /* CoreGraphics.framework */; };
+		A83248891A7C924500E80DED /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83248881A7C924500E80DED /* SystemConfiguration.framework */; };
+		A832488B1A7C924C00E80DED /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A832488A1A7C924C00E80DED /* CoreBluetooth.framework */; };
+		A832488D1A7C925200E80DED /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A832488C1A7C925200E80DED /* CoreLocation.framework */; };
+		A832488F1A7C925800E80DED /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A832488E1A7C925800E80DED /* CoreMotion.framework */; };
+		A83248911A7C926000E80DED /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83248901A7C926000E80DED /* AudioToolbox.framework */; };
+		A83248931A7C926E00E80DED /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83248921A7C926E00E80DED /* MediaPlayer.framework */; };
+		A83248951A7C927500E80DED /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83248941A7C927500E80DED /* MessageUI.framework */; };
+		A83248991A7D2E5C00E80DED /* location.json in Resources */ = {isa = PBXBuildFile; fileRef = A83248981A7D2E5C00E80DED /* location.json */; };
+		A83249911A836D0000E80DED /* headphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A83249901A836D0000E80DED /* headphone.png */; };
+		A83249981A8391C200E80DED /* ESTAuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A83249961A8391C200E80DED /* ESTAuthorizationViewController.m */; };
+		A83249991A8391C200E80DED /* ESTAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83249971A8391C200E80DED /* ESTAuthorizationViewController.xib */; };
+		A832499E1A8391F000E80DED /* ESTIndoorLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A832499C1A8391F000E80DED /* ESTIndoorLocationViewController.m */; };
+		A832499F1A8391F000E80DED /* ESTIndoorLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A832499D1A8391F000E80DED /* ESTIndoorLocationViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A83248071A7C543700E80DED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A83247E51A7C543700E80DED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A83247EC1A7C543700E80DED;
+			remoteInfo = audioguide;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A80F96F71A87286600BD12C2 /* noteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = noteViewController.h; sourceTree = "<group>"; };
+		A80F96F81A87286600BD12C2 /* noteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = noteViewController.m; sourceTree = "<group>"; };
+		A80F96FA1A886C6700BD12C2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A80F96FC1A89965700BD12C2 /* defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = defines.h; path = ../defines.h; sourceTree = "<group>"; };
+		A80F97001A89A19C00BD12C2 /* listViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = listViewController.h; sourceTree = "<group>"; };
+		A80F97011A89A19C00BD12C2 /* listViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = listViewController.m; sourceTree = "<group>"; };
+		A82CBAA31A98C73D00588454 /* clientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clientViewController.h; sourceTree = "<group>"; };
+		A82CBAA41A98C73D00588454 /* clientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = clientViewController.m; sourceTree = "<group>"; };
+		A82E7D551A84E51E000A27AE /* buildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buildViewController.h; sourceTree = "<group>"; };
+		A82E7D561A84E51E000A27AE /* buildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = buildViewController.m; sourceTree = "<group>"; };
+		A83247ED1A7C543700E80DED /* audioguide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = audioguide.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A83247F11A7C543700E80DED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A83247F21A7C543700E80DED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A83247F41A7C543700E80DED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A83247F51A7C543700E80DED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A83247FB1A7C543700E80DED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A83247FD1A7C543700E80DED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A83248001A7C543700E80DED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		A83248061A7C543700E80DED /* audioguideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = audioguideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A832480B1A7C543800E80DED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A832480C1A7C543800E80DED /* audioguideTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = audioguideTests.m; sourceTree = "<group>"; };
+		A83248161A7C556300E80DED /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A832481A1A7C921800E80DED /* ESTIndoorLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTIndoorLocationManager.h; sourceTree = "<group>"; };
+		A832481B1A7C921800E80DED /* ESTIndoorLocationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTIndoorLocationView.h; sourceTree = "<group>"; };
+		A832481C1A7C921800E80DED /* ESTLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTLocation.h; sourceTree = "<group>"; };
+		A832481D1A7C921800E80DED /* ESTLocationBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTLocationBuilder.h; sourceTree = "<group>"; };
+		A832481E1A7C921800E80DED /* ESTLocationLinearObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTLocationLinearObject.h; sourceTree = "<group>"; };
+		A832481F1A7C921800E80DED /* ESTOrientedLineSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTOrientedLineSegment.h; sourceTree = "<group>"; };
+		A83248201A7C921800E80DED /* ESTOrientedPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTOrientedPoint.h; sourceTree = "<group>"; };
+		A83248211A7C921800E80DED /* ESTPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTPoint.h; sourceTree = "<group>"; };
+		A83248221A7C921800E80DED /* ESTPositionedBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTPositionedBeacon.h; sourceTree = "<group>"; };
+		A83248231A7C921800E80DED /* libEstimoteIndoorSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEstimoteIndoorSDK.a; sourceTree = "<group>"; };
+		A83248251A7C921800E80DED /* 5a.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 5a.mov; sourceTree = "<group>"; };
+		A83248261A7C921800E80DED /* 5b.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 5b.mov; sourceTree = "<group>"; };
+		A83248271A7C921800E80DED /* 8a.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 8a.mov; sourceTree = "<group>"; };
+		A83248281A7C921800E80DED /* 8b.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 8b.mov; sourceTree = "<group>"; };
+		A83248291A7C921800E80DED /* 8c.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 8c.mov; sourceTree = "<group>"; };
+		A832482B1A7C921800E80DED /* 5a_first_frame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5a_first_frame@2x.png"; sourceTree = "<group>"; };
+		A832482C1A7C921800E80DED /* 5b_first_frame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5b_first_frame@2x.png"; sourceTree = "<group>"; };
+		A832482D1A7C921800E80DED /* 8a_first_frame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "8a_first_frame@2x.png"; sourceTree = "<group>"; };
+		A832482E1A7C921800E80DED /* 8b_first_frame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "8b_first_frame@2x.png"; sourceTree = "<group>"; };
+		A832482F1A7C921800E80DED /* 8c_first_frame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "8c_first_frame@2x.png"; sourceTree = "<group>"; };
+		A83248301A7C921800E80DED /* beacon_grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beacon_grey@2x.png"; sourceTree = "<group>"; };
+		A83248311A7C921800E80DED /* beaconblueberry@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beaconblueberry@2x.png"; sourceTree = "<group>"; };
+		A83248321A7C921800E80DED /* beaconBlueberrySmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beaconBlueberrySmall.png; sourceTree = "<group>"; };
+		A83248331A7C921800E80DED /* beaconBlueberrySmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beaconBlueberrySmall@2x.png"; sourceTree = "<group>"; };
+		A83248341A7C921800E80DED /* beacongrey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beacongrey@2x.png"; sourceTree = "<group>"; };
+		A83248351A7C921800E80DED /* beaconGreySmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beaconGreySmall@2x.png"; sourceTree = "<group>"; };
+		A83248361A7C921800E80DED /* beaconicy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beaconicy@2x.png"; sourceTree = "<group>"; };
+		A83248371A7C921800E80DED /* beaconIcySmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beaconIcySmall.png; sourceTree = "<group>"; };
+		A83248381A7C921800E80DED /* beaconIcySmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beaconIcySmall@2x.png"; sourceTree = "<group>"; };
+		A83248391A7C921800E80DED /* beaconmint@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beaconmint@2x.png"; sourceTree = "<group>"; };
+		A832483A1A7C921800E80DED /* beaconMintSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beaconMintSmall.png; sourceTree = "<group>"; };
+		A832483B1A7C921800E80DED /* beaconMintSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beaconMintSmall@2x.png"; sourceTree = "<group>"; };
+		A832483C1A7C921800E80DED /* indoor_error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "indoor_error@2x.png"; sourceTree = "<group>"; };
+		A832483D1A7C921800E80DED /* instructions@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instructions@2x.png"; sourceTree = "<group>"; };
+		A832483E1A7C921800E80DED /* navigation_guy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation_guy@2x.png"; sourceTree = "<group>"; };
+		A832483F1A7C921800E80DED /* screen8_beacon_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "screen8_beacon_blue@2x.png"; sourceTree = "<group>"; };
+		A83248401A7C921800E80DED /* screen8_beacon_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "screen8_beacon_gray@2x.png"; sourceTree = "<group>"; };
+		A83248411A7C921800E80DED /* screen8_beacon_gray_trans@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "screen8_beacon_gray_trans@2x.png"; sourceTree = "<group>"; };
+		A83248421A7C921800E80DED /* screen8_beacon_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "screen8_beacon_green@2x.png"; sourceTree = "<group>"; };
+		A83248431A7C921800E80DED /* screen8_beacon_purple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "screen8_beacon_purple@2x.png"; sourceTree = "<group>"; };
+		A83248441A7C921800E80DED /* tick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tick@2x.png"; sourceTree = "<group>"; };
+		A83248451A7C921800E80DED /* welcome@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome@2x.png"; sourceTree = "<group>"; };
+		A83248461A7C921800E80DED /* SixBeaconsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SixBeaconsView.xib; sourceTree = "<group>"; };
+		A83248471A7C921800E80DED /* wall_bump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wall_bump.wav; sourceTree = "<group>"; };
+		A832484A1A7C921800E80DED /* ESTBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeacon.h; sourceTree = "<group>"; };
+		A832484B1A7C921800E80DED /* ESTBeaconDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconDefinitions.h; sourceTree = "<group>"; };
+		A832484C1A7C921800E80DED /* ESTBeaconFirmwareVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconFirmwareVO.h; sourceTree = "<group>"; };
+		A832484D1A7C921800E80DED /* ESTBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconManager.h; sourceTree = "<group>"; };
+		A832484E1A7C921800E80DED /* ESTBeaconRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconRegion.h; sourceTree = "<group>"; };
+		A832484F1A7C921800E80DED /* ESTBeaconUpdateConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconUpdateConfig.h; sourceTree = "<group>"; };
+		A83248501A7C921800E80DED /* ESTBeaconUpdateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconUpdateInfo.h; sourceTree = "<group>"; };
+		A83248511A7C921800E80DED /* ESTBeaconVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconVO.h; sourceTree = "<group>"; };
+		A83248521A7C921800E80DED /* ESTBulkUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBulkUpdater.h; sourceTree = "<group>"; };
+		A83248531A7C921800E80DED /* ESTConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTConfig.h; sourceTree = "<group>"; };
+		A83248541A7C921800E80DED /* ESTDateRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTDateRule.h; sourceTree = "<group>"; };
+		A83248551A7C921800E80DED /* ESTDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTDefinitions.h; sourceTree = "<group>"; };
+		A83248561A7C921800E80DED /* ESTFirmwareInfoVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTFirmwareInfoVO.h; sourceTree = "<group>"; };
+		A83248571A7C921800E80DED /* ESTMotionRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTMotionRule.h; sourceTree = "<group>"; };
+		A83248581A7C921800E80DED /* ESTNearable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTNearable.h; sourceTree = "<group>"; };
+		A83248591A7C921800E80DED /* ESTNearableManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTNearableManager.h; sourceTree = "<group>"; };
+		A832485A1A7C921800E80DED /* ESTNearableRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTNearableRule.h; sourceTree = "<group>"; };
+		A832485B1A7C921800E80DED /* ESTOrientationRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTOrientationRule.h; sourceTree = "<group>"; };
+		A832485C1A7C921800E80DED /* ESTProximityRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTProximityRule.h; sourceTree = "<group>"; };
+		A832485D1A7C921800E80DED /* ESTRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTRule.h; sourceTree = "<group>"; };
+		A832485E1A7C921800E80DED /* ESTTemperatureRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTTemperatureRule.h; sourceTree = "<group>"; };
+		A832485F1A7C921800E80DED /* ESTTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTTrigger.h; sourceTree = "<group>"; };
+		A83248601A7C921800E80DED /* ESTTriggerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTTriggerManager.h; sourceTree = "<group>"; };
+		A83248611A7C921800E80DED /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEstimoteSDK.a; sourceTree = "<group>"; };
+		A83248861A7C923B00E80DED /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A83248881A7C924500E80DED /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A832488A1A7C924C00E80DED /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		A832488C1A7C925200E80DED /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A832488E1A7C925800E80DED /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		A83248901A7C926000E80DED /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A83248921A7C926E00E80DED /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		A83248941A7C927500E80DED /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		A83248981A7D2E5C00E80DED /* location.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = location.json; sourceTree = "<group>"; };
+		A83249901A836D0000E80DED /* headphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headphone.png; sourceTree = "<group>"; };
+		A83249951A8391C200E80DED /* ESTAuthorizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTAuthorizationViewController.h; sourceTree = "<group>"; };
+		A83249961A8391C200E80DED /* ESTAuthorizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESTAuthorizationViewController.m; sourceTree = "<group>"; };
+		A83249971A8391C200E80DED /* ESTAuthorizationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ESTAuthorizationViewController.xib; sourceTree = "<group>"; };
+		A832499B1A8391F000E80DED /* ESTIndoorLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTIndoorLocationViewController.h; sourceTree = "<group>"; };
+		A832499C1A8391F000E80DED /* ESTIndoorLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESTIndoorLocationViewController.m; sourceTree = "<group>"; };
+		A832499D1A8391F000E80DED /* ESTIndoorLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ESTIndoorLocationViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A83247EA1A7C543700E80DED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A83248951A7C927500E80DED /* MessageUI.framework in Frameworks */,
+				A83248931A7C926E00E80DED /* MediaPlayer.framework in Frameworks */,
+				A83248171A7C556300E80DED /* AVFoundation.framework in Frameworks */,
+				A83248911A7C926000E80DED /* AudioToolbox.framework in Frameworks */,
+				A832488F1A7C925800E80DED /* CoreMotion.framework in Frameworks */,
+				A832488D1A7C925200E80DED /* CoreLocation.framework in Frameworks */,
+				A832488B1A7C924C00E80DED /* CoreBluetooth.framework in Frameworks */,
+				A83248891A7C924500E80DED /* SystemConfiguration.framework in Frameworks */,
+				A83248871A7C923B00E80DED /* CoreGraphics.framework in Frameworks */,
+				A83248851A7C921800E80DED /* libEstimoteSDK.a in Frameworks */,
+				A83248621A7C921800E80DED /* libEstimoteIndoorSDK.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A83248031A7C543700E80DED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A83247E41A7C543700E80DED = {
+			isa = PBXGroup;
+			children = (
+				A832499A1A8391CC00E80DED /* Estimote IndoorSDK ViewController */,
+				A832489A1A7D2E6900E80DED /* Frameworks */,
+				A83247EF1A7C543700E80DED /* audioguide */,
+				A83248091A7C543800E80DED /* audioguideTests */,
+				A83247EE1A7C543700E80DED /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A83247EE1A7C543700E80DED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A83247ED1A7C543700E80DED /* audioguide.app */,
+				A83248061A7C543700E80DED /* audioguideTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A83247EF1A7C543700E80DED /* audioguide */ = {
+			isa = PBXGroup;
+			children = (
+				A80F96FC1A89965700BD12C2 /* defines.h */,
+				A83247F41A7C543700E80DED /* AppDelegate.h */,
+				A83247F51A7C543700E80DED /* AppDelegate.m */,
+				A82CBAA31A98C73D00588454 /* clientViewController.h */,
+				A82CBAA41A98C73D00588454 /* clientViewController.m */,
+				A82E7D551A84E51E000A27AE /* buildViewController.h */,
+				A82E7D561A84E51E000A27AE /* buildViewController.m */,
+				A80F96F71A87286600BD12C2 /* noteViewController.h */,
+				A80F96F81A87286600BD12C2 /* noteViewController.m */,
+				A80F97001A89A19C00BD12C2 /* listViewController.h */,
+				A80F97011A89A19C00BD12C2 /* listViewController.m */,
+				A83247FD1A7C543700E80DED /* Images.xcassets */,
+				A83247FA1A7C543700E80DED /* Main.storyboard */,
+				A83247FF1A7C543700E80DED /* LaunchScreen.xib */,
+				A83247F01A7C543700E80DED /* Supporting Files */,
+			);
+			path = audioguide;
+			sourceTree = "<group>";
+		};
+		A83247F01A7C543700E80DED /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A83248981A7D2E5C00E80DED /* location.json */,
+				A83249901A836D0000E80DED /* headphone.png */,
+				A83248181A7C921800E80DED /* EstimoteIndoorLocationSDK */,
+				A83248481A7C921800E80DED /* EstimoteSDK */,
+				A83247F11A7C543700E80DED /* Info.plist */,
+				A83247F21A7C543700E80DED /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A83248091A7C543800E80DED /* audioguideTests */ = {
+			isa = PBXGroup;
+			children = (
+				A832480C1A7C543800E80DED /* audioguideTests.m */,
+				A832480A1A7C543800E80DED /* Supporting Files */,
+			);
+			path = audioguideTests;
+			sourceTree = "<group>";
+		};
+		A832480A1A7C543800E80DED /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A832480B1A7C543800E80DED /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A83248181A7C921800E80DED /* EstimoteIndoorLocationSDK */ = {
+			isa = PBXGroup;
+			children = (
+				A83248191A7C921800E80DED /* Headers */,
+				A83248231A7C921800E80DED /* libEstimoteIndoorSDK.a */,
+				A83248241A7C921800E80DED /* Resources */,
+			);
+			path = EstimoteIndoorLocationSDK;
+			sourceTree = "<group>";
+		};
+		A83248191A7C921800E80DED /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				A832481A1A7C921800E80DED /* ESTIndoorLocationManager.h */,
+				A832481B1A7C921800E80DED /* ESTIndoorLocationView.h */,
+				A832481C1A7C921800E80DED /* ESTLocation.h */,
+				A832481D1A7C921800E80DED /* ESTLocationBuilder.h */,
+				A832481E1A7C921800E80DED /* ESTLocationLinearObject.h */,
+				A832481F1A7C921800E80DED /* ESTOrientedLineSegment.h */,
+				A83248201A7C921800E80DED /* ESTOrientedPoint.h */,
+				A83248211A7C921800E80DED /* ESTPoint.h */,
+				A83248221A7C921800E80DED /* ESTPositionedBeacon.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		A83248241A7C921800E80DED /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A83248251A7C921800E80DED /* 5a.mov */,
+				A83248261A7C921800E80DED /* 5b.mov */,
+				A83248271A7C921800E80DED /* 8a.mov */,
+				A83248281A7C921800E80DED /* 8b.mov */,
+				A83248291A7C921800E80DED /* 8c.mov */,
+				A832482A1A7C921800E80DED /* Images */,
+				A83248461A7C921800E80DED /* SixBeaconsView.xib */,
+				A83248471A7C921800E80DED /* wall_bump.wav */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A832482A1A7C921800E80DED /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A832482B1A7C921800E80DED /* 5a_first_frame@2x.png */,
+				A832482C1A7C921800E80DED /* 5b_first_frame@2x.png */,
+				A832482D1A7C921800E80DED /* 8a_first_frame@2x.png */,
+				A832482E1A7C921800E80DED /* 8b_first_frame@2x.png */,
+				A832482F1A7C921800E80DED /* 8c_first_frame@2x.png */,
+				A83248301A7C921800E80DED /* beacon_grey@2x.png */,
+				A83248311A7C921800E80DED /* beaconblueberry@2x.png */,
+				A83248321A7C921800E80DED /* beaconBlueberrySmall.png */,
+				A83248331A7C921800E80DED /* beaconBlueberrySmall@2x.png */,
+				A83248341A7C921800E80DED /* beacongrey@2x.png */,
+				A83248351A7C921800E80DED /* beaconGreySmall@2x.png */,
+				A83248361A7C921800E80DED /* beaconicy@2x.png */,
+				A83248371A7C921800E80DED /* beaconIcySmall.png */,
+				A83248381A7C921800E80DED /* beaconIcySmall@2x.png */,
+				A83248391A7C921800E80DED /* beaconmint@2x.png */,
+				A832483A1A7C921800E80DED /* beaconMintSmall.png */,
+				A832483B1A7C921800E80DED /* beaconMintSmall@2x.png */,
+				A832483C1A7C921800E80DED /* indoor_error@2x.png */,
+				A832483D1A7C921800E80DED /* instructions@2x.png */,
+				A832483E1A7C921800E80DED /* navigation_guy@2x.png */,
+				A832483F1A7C921800E80DED /* screen8_beacon_blue@2x.png */,
+				A83248401A7C921800E80DED /* screen8_beacon_gray@2x.png */,
+				A83248411A7C921800E80DED /* screen8_beacon_gray_trans@2x.png */,
+				A83248421A7C921800E80DED /* screen8_beacon_green@2x.png */,
+				A83248431A7C921800E80DED /* screen8_beacon_purple@2x.png */,
+				A83248441A7C921800E80DED /* tick@2x.png */,
+				A83248451A7C921800E80DED /* welcome@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		A83248481A7C921800E80DED /* EstimoteSDK */ = {
+			isa = PBXGroup;
+			children = (
+				A83248491A7C921800E80DED /* Headers */,
+				A83248611A7C921800E80DED /* libEstimoteSDK.a */,
+			);
+			path = EstimoteSDK;
+			sourceTree = "<group>";
+		};
+		A83248491A7C921800E80DED /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				A832484A1A7C921800E80DED /* ESTBeacon.h */,
+				A832484B1A7C921800E80DED /* ESTBeaconDefinitions.h */,
+				A832484C1A7C921800E80DED /* ESTBeaconFirmwareVO.h */,
+				A832484D1A7C921800E80DED /* ESTBeaconManager.h */,
+				A832484E1A7C921800E80DED /* ESTBeaconRegion.h */,
+				A832484F1A7C921800E80DED /* ESTBeaconUpdateConfig.h */,
+				A83248501A7C921800E80DED /* ESTBeaconUpdateInfo.h */,
+				A83248511A7C921800E80DED /* ESTBeaconVO.h */,
+				A83248521A7C921800E80DED /* ESTBulkUpdater.h */,
+				A83248531A7C921800E80DED /* ESTConfig.h */,
+				A83248541A7C921800E80DED /* ESTDateRule.h */,
+				A83248551A7C921800E80DED /* ESTDefinitions.h */,
+				A83248561A7C921800E80DED /* ESTFirmwareInfoVO.h */,
+				A83248571A7C921800E80DED /* ESTMotionRule.h */,
+				A83248581A7C921800E80DED /* ESTNearable.h */,
+				A83248591A7C921800E80DED /* ESTNearableManager.h */,
+				A832485A1A7C921800E80DED /* ESTNearableRule.h */,
+				A832485B1A7C921800E80DED /* ESTOrientationRule.h */,
+				A832485C1A7C921800E80DED /* ESTProximityRule.h */,
+				A832485D1A7C921800E80DED /* ESTRule.h */,
+				A832485E1A7C921800E80DED /* ESTTemperatureRule.h */,
+				A832485F1A7C921800E80DED /* ESTTrigger.h */,
+				A83248601A7C921800E80DED /* ESTTriggerManager.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		A832489A1A7D2E6900E80DED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A80F96FA1A886C6700BD12C2 /* QuartzCore.framework */,
+				A83248941A7C927500E80DED /* MessageUI.framework */,
+				A83248921A7C926E00E80DED /* MediaPlayer.framework */,
+				A83248901A7C926000E80DED /* AudioToolbox.framework */,
+				A832488E1A7C925800E80DED /* CoreMotion.framework */,
+				A832488C1A7C925200E80DED /* CoreLocation.framework */,
+				A832488A1A7C924C00E80DED /* CoreBluetooth.framework */,
+				A83248881A7C924500E80DED /* SystemConfiguration.framework */,
+				A83248861A7C923B00E80DED /* CoreGraphics.framework */,
+				A83248161A7C556300E80DED /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A832499A1A8391CC00E80DED /* Estimote IndoorSDK ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A83249951A8391C200E80DED /* ESTAuthorizationViewController.h */,
+				A83249961A8391C200E80DED /* ESTAuthorizationViewController.m */,
+				A83249971A8391C200E80DED /* ESTAuthorizationViewController.xib */,
+				A832499B1A8391F000E80DED /* ESTIndoorLocationViewController.h */,
+				A832499C1A8391F000E80DED /* ESTIndoorLocationViewController.m */,
+				A832499D1A8391F000E80DED /* ESTIndoorLocationViewController.xib */,
+			);
+			name = "Estimote IndoorSDK ViewController";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A83247EC1A7C543700E80DED /* audioguide */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A83248101A7C543800E80DED /* Build configuration list for PBXNativeTarget "audioguide" */;
+			buildPhases = (
+				A83247E91A7C543700E80DED /* Sources */,
+				A83247EA1A7C543700E80DED /* Frameworks */,
+				A83247EB1A7C543700E80DED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = audioguide;
+			productName = audioguide;
+			productReference = A83247ED1A7C543700E80DED /* audioguide.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A83248051A7C543700E80DED /* audioguideTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A83248131A7C543800E80DED /* Build configuration list for PBXNativeTarget "audioguideTests" */;
+			buildPhases = (
+				A83248021A7C543700E80DED /* Sources */,
+				A83248031A7C543700E80DED /* Frameworks */,
+				A83248041A7C543700E80DED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A83248081A7C543700E80DED /* PBXTargetDependency */,
+			);
+			name = audioguideTests;
+			productName = audioguideTests;
+			productReference = A83248061A7C543700E80DED /* audioguideTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A83247E51A7C543700E80DED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = Company;
+				TargetAttributes = {
+					A83247EC1A7C543700E80DED = {
+						CreatedOnToolsVersion = 6.1.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					A83248051A7C543700E80DED = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = A83247EC1A7C543700E80DED;
+					};
+				};
+			};
+			buildConfigurationList = A83247E81A7C543700E80DED /* Build configuration list for PBXProject "audioguide" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A83247E41A7C543700E80DED;
+			productRefGroup = A83247EE1A7C543700E80DED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A83247EC1A7C543700E80DED /* audioguide */,
+				A83248051A7C543700E80DED /* audioguideTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A83247EB1A7C543700E80DED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A83248661A7C921800E80DED /* 8b.mov in Resources */,
+				A83248711A7C921800E80DED /* beacongrey@2x.png in Resources */,
+				A83248751A7C921800E80DED /* beaconIcySmall@2x.png in Resources */,
+				A83249991A8391C200E80DED /* ESTAuthorizationViewController.xib in Resources */,
+				A832486B1A7C921800E80DED /* 8b_first_frame@2x.png in Resources */,
+				A83248671A7C921800E80DED /* 8c.mov in Resources */,
+				A832486A1A7C921800E80DED /* 8a_first_frame@2x.png in Resources */,
+				A832487C1A7C921800E80DED /* screen8_beacon_blue@2x.png in Resources */,
+				A83248811A7C921800E80DED /* tick@2x.png in Resources */,
+				A832487F1A7C921800E80DED /* screen8_beacon_green@2x.png in Resources */,
+				A83248641A7C921800E80DED /* 5b.mov in Resources */,
+				A83248721A7C921800E80DED /* beaconGreySmall@2x.png in Resources */,
+				A83248681A7C921800E80DED /* 5a_first_frame@2x.png in Resources */,
+				A83249911A836D0000E80DED /* headphone.png in Resources */,
+				A832487D1A7C921800E80DED /* screen8_beacon_gray@2x.png in Resources */,
+				A83248761A7C921800E80DED /* beaconmint@2x.png in Resources */,
+				A83248841A7C921800E80DED /* wall_bump.wav in Resources */,
+				A83248691A7C921800E80DED /* 5b_first_frame@2x.png in Resources */,
+				A83248631A7C921800E80DED /* 5a.mov in Resources */,
+				A832486F1A7C921800E80DED /* beaconBlueberrySmall.png in Resources */,
+				A832486E1A7C921800E80DED /* beaconblueberry@2x.png in Resources */,
+				A832487B1A7C921800E80DED /* navigation_guy@2x.png in Resources */,
+				A83248991A7D2E5C00E80DED /* location.json in Resources */,
+				A83248791A7C921800E80DED /* indoor_error@2x.png in Resources */,
+				A83247FC1A7C543700E80DED /* Main.storyboard in Resources */,
+				A83248801A7C921800E80DED /* screen8_beacon_purple@2x.png in Resources */,
+				A83248771A7C921800E80DED /* beaconMintSmall.png in Resources */,
+				A832486C1A7C921800E80DED /* 8c_first_frame@2x.png in Resources */,
+				A83248651A7C921800E80DED /* 8a.mov in Resources */,
+				A83248741A7C921800E80DED /* beaconIcySmall.png in Resources */,
+				A83248821A7C921800E80DED /* welcome@2x.png in Resources */,
+				A83248011A7C543700E80DED /* LaunchScreen.xib in Resources */,
+				A83247FE1A7C543700E80DED /* Images.xcassets in Resources */,
+				A83248831A7C921800E80DED /* SixBeaconsView.xib in Resources */,
+				A832499F1A8391F000E80DED /* ESTIndoorLocationViewController.xib in Resources */,
+				A83248781A7C921800E80DED /* beaconMintSmall@2x.png in Resources */,
+				A83248701A7C921800E80DED /* beaconBlueberrySmall@2x.png in Resources */,
+				A832487A1A7C921800E80DED /* instructions@2x.png in Resources */,
+				A83248731A7C921800E80DED /* beaconicy@2x.png in Resources */,
+				A832486D1A7C921800E80DED /* beacon_grey@2x.png in Resources */,
+				A832487E1A7C921800E80DED /* screen8_beacon_gray_trans@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A83248041A7C543700E80DED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A83247E91A7C543700E80DED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A83249981A8391C200E80DED /* ESTAuthorizationViewController.m in Sources */,
+				A80F97021A89A19C00BD12C2 /* listViewController.m in Sources */,
+				A82CBAA51A98C73D00588454 /* clientViewController.m in Sources */,
+				A832499E1A8391F000E80DED /* ESTIndoorLocationViewController.m in Sources */,
+				A80F96F91A87286600BD12C2 /* noteViewController.m in Sources */,
+				A83247F61A7C543700E80DED /* AppDelegate.m in Sources */,
+				A82E7D571A84E51E000A27AE /* buildViewController.m in Sources */,
+				A83247F31A7C543700E80DED /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A83248021A7C543700E80DED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A832480D1A7C543800E80DED /* audioguideTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A83248081A7C543700E80DED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A83247EC1A7C543700E80DED /* audioguide */;
+			targetProxy = A83248071A7C543700E80DED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A83247FA1A7C543700E80DED /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A83247FB1A7C543700E80DED /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A83247FF1A7C543700E80DED /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A83248001A7C543700E80DED /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A832480E1A7C543800E80DED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lc++";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A832480F1A7C543800E80DED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-lc++";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A83248111A7C543800E80DED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = audioguide/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/audioguide/EstimoteIndoorLocationSDK",
+					"$(PROJECT_DIR)/audioguide/EstimoteSDK",
+				);
+				OTHER_LDFLAGS = "-lc++";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A83248121A7C543800E80DED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = audioguide/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/audioguide/EstimoteIndoorLocationSDK",
+					"$(PROJECT_DIR)/audioguide/EstimoteSDK",
+				);
+				OTHER_LDFLAGS = "-lc++";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A83248141A7C543800E80DED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = audioguideTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/audioguide.app/audioguide";
+			};
+			name = Debug;
+		};
+		A83248151A7C543800E80DED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = audioguideTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/audioguide.app/audioguide";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A83247E81A7C543700E80DED /* Build configuration list for PBXProject "audioguide" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A832480E1A7C543800E80DED /* Debug */,
+				A832480F1A7C543800E80DED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A83248101A7C543800E80DED /* Build configuration list for PBXNativeTarget "audioguide" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A83248111A7C543800E80DED /* Debug */,
+				A83248121A7C543800E80DED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A83248131A7C543800E80DED /* Build configuration list for PBXNativeTarget "audioguideTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A83248141A7C543800E80DED /* Debug */,
+				A83248151A7C543800E80DED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A83247E51A7C543700E80DED /* Project object */;
+}
