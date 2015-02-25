@@ -64,10 +64,8 @@
 		A83248951A7C927500E80DED /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83248941A7C927500E80DED /* MessageUI.framework */; };
 		A83248991A7D2E5C00E80DED /* location.json in Resources */ = {isa = PBXBuildFile; fileRef = A83248981A7D2E5C00E80DED /* location.json */; };
 		A83249911A836D0000E80DED /* headphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A83249901A836D0000E80DED /* headphone.png */; };
-		A83249981A8391C200E80DED /* ESTAuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A83249961A8391C200E80DED /* ESTAuthorizationViewController.m */; };
-		A83249991A8391C200E80DED /* ESTAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83249971A8391C200E80DED /* ESTAuthorizationViewController.xib */; };
-		A832499E1A8391F000E80DED /* ESTIndoorLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A832499C1A8391F000E80DED /* ESTIndoorLocationViewController.m */; };
-		A832499F1A8391F000E80DED /* ESTIndoorLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A832499D1A8391F000E80DED /* ESTIndoorLocationViewController.xib */; };
+		A86548801A9E688B00A7A7EB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A80F96FA1A886C6700BD12C2 /* QuartzCore.framework */; };
+		A86548831A9E68A200A7A7EB /* mainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A86548821A9E68A200A7A7EB /* mainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +82,6 @@
 		A80F96F71A87286600BD12C2 /* noteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = noteViewController.h; sourceTree = "<group>"; };
 		A80F96F81A87286600BD12C2 /* noteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = noteViewController.m; sourceTree = "<group>"; };
 		A80F96FA1A886C6700BD12C2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		A80F96FC1A89965700BD12C2 /* defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = defines.h; path = ../defines.h; sourceTree = "<group>"; };
 		A80F97001A89A19C00BD12C2 /* listViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = listViewController.h; sourceTree = "<group>"; };
 		A80F97011A89A19C00BD12C2 /* listViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = listViewController.m; sourceTree = "<group>"; };
 		A82CBAA31A98C73D00588454 /* clientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clientViewController.h; sourceTree = "<group>"; };
@@ -94,7 +91,6 @@
 		A83247ED1A7C543700E80DED /* audioguide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = audioguide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A83247F11A7C543700E80DED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A83247F21A7C543700E80DED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A83247F41A7C543700E80DED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A83247F51A7C543700E80DED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A83247FB1A7C543700E80DED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A83247FD1A7C543700E80DED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -181,12 +177,10 @@
 		A83248941A7C927500E80DED /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A83248981A7D2E5C00E80DED /* location.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = location.json; sourceTree = "<group>"; };
 		A83249901A836D0000E80DED /* headphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headphone.png; sourceTree = "<group>"; };
-		A83249951A8391C200E80DED /* ESTAuthorizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTAuthorizationViewController.h; sourceTree = "<group>"; };
-		A83249961A8391C200E80DED /* ESTAuthorizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESTAuthorizationViewController.m; sourceTree = "<group>"; };
-		A83249971A8391C200E80DED /* ESTAuthorizationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ESTAuthorizationViewController.xib; sourceTree = "<group>"; };
-		A832499B1A8391F000E80DED /* ESTIndoorLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTIndoorLocationViewController.h; sourceTree = "<group>"; };
-		A832499C1A8391F000E80DED /* ESTIndoorLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESTIndoorLocationViewController.m; sourceTree = "<group>"; };
-		A832499D1A8391F000E80DED /* ESTIndoorLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ESTIndoorLocationViewController.xib; sourceTree = "<group>"; };
+		A86548811A9E68A200A7A7EB /* mainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainViewController.h; sourceTree = "<group>"; };
+		A86548821A9E68A200A7A7EB /* mainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainViewController.m; sourceTree = "<group>"; };
+		A86548841A9E770B00A7A7EB /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A86548851A9E771700A7A7EB /* defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A86548801A9E688B00A7A7EB /* QuartzCore.framework in Frameworks */,
 				A83248951A7C927500E80DED /* MessageUI.framework in Frameworks */,
 				A83248931A7C926E00E80DED /* MediaPlayer.framework in Frameworks */,
 				A83248171A7C556300E80DED /* AVFoundation.framework in Frameworks */,
@@ -221,7 +216,6 @@
 		A83247E41A7C543700E80DED = {
 			isa = PBXGroup;
 			children = (
-				A832499A1A8391CC00E80DED /* Estimote IndoorSDK ViewController */,
 				A832489A1A7D2E6900E80DED /* Frameworks */,
 				A83247EF1A7C543700E80DED /* audioguide */,
 				A83248091A7C543800E80DED /* audioguideTests */,
@@ -241,17 +235,19 @@
 		A83247EF1A7C543700E80DED /* audioguide */ = {
 			isa = PBXGroup;
 			children = (
-				A80F96FC1A89965700BD12C2 /* defines.h */,
-				A83247F41A7C543700E80DED /* AppDelegate.h */,
+				A86548851A9E771700A7A7EB /* defines.h */,
+				A86548841A9E770B00A7A7EB /* AppDelegate.h */,
 				A83247F51A7C543700E80DED /* AppDelegate.m */,
-				A82CBAA31A98C73D00588454 /* clientViewController.h */,
-				A82CBAA41A98C73D00588454 /* clientViewController.m */,
+				A86548811A9E68A200A7A7EB /* mainViewController.h */,
+				A86548821A9E68A200A7A7EB /* mainViewController.m */,
 				A82E7D551A84E51E000A27AE /* buildViewController.h */,
 				A82E7D561A84E51E000A27AE /* buildViewController.m */,
-				A80F96F71A87286600BD12C2 /* noteViewController.h */,
-				A80F96F81A87286600BD12C2 /* noteViewController.m */,
 				A80F97001A89A19C00BD12C2 /* listViewController.h */,
 				A80F97011A89A19C00BD12C2 /* listViewController.m */,
+				A80F96F71A87286600BD12C2 /* noteViewController.h */,
+				A80F96F81A87286600BD12C2 /* noteViewController.m */,
+				A82CBAA31A98C73D00588454 /* clientViewController.h */,
+				A82CBAA41A98C73D00588454 /* clientViewController.m */,
 				A83247FD1A7C543700E80DED /* Images.xcassets */,
 				A83247FA1A7C543700E80DED /* Main.storyboard */,
 				A83247FF1A7C543700E80DED /* LaunchScreen.xib */,
@@ -421,19 +417,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A832499A1A8391CC00E80DED /* Estimote IndoorSDK ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				A83249951A8391C200E80DED /* ESTAuthorizationViewController.h */,
-				A83249961A8391C200E80DED /* ESTAuthorizationViewController.m */,
-				A83249971A8391C200E80DED /* ESTAuthorizationViewController.xib */,
-				A832499B1A8391F000E80DED /* ESTIndoorLocationViewController.h */,
-				A832499C1A8391F000E80DED /* ESTIndoorLocationViewController.m */,
-				A832499D1A8391F000E80DED /* ESTIndoorLocationViewController.xib */,
-			);
-			name = "Estimote IndoorSDK ViewController";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -522,7 +505,6 @@
 				A83248661A7C921800E80DED /* 8b.mov in Resources */,
 				A83248711A7C921800E80DED /* beacongrey@2x.png in Resources */,
 				A83248751A7C921800E80DED /* beaconIcySmall@2x.png in Resources */,
-				A83249991A8391C200E80DED /* ESTAuthorizationViewController.xib in Resources */,
 				A832486B1A7C921800E80DED /* 8b_first_frame@2x.png in Resources */,
 				A83248671A7C921800E80DED /* 8c.mov in Resources */,
 				A832486A1A7C921800E80DED /* 8a_first_frame@2x.png in Resources */,
@@ -553,7 +535,6 @@
 				A83248011A7C543700E80DED /* LaunchScreen.xib in Resources */,
 				A83247FE1A7C543700E80DED /* Images.xcassets in Resources */,
 				A83248831A7C921800E80DED /* SixBeaconsView.xib in Resources */,
-				A832499F1A8391F000E80DED /* ESTIndoorLocationViewController.xib in Resources */,
 				A83248781A7C921800E80DED /* beaconMintSmall@2x.png in Resources */,
 				A83248701A7C921800E80DED /* beaconBlueberrySmall@2x.png in Resources */,
 				A832487A1A7C921800E80DED /* instructions@2x.png in Resources */,
@@ -577,13 +558,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A83249981A8391C200E80DED /* ESTAuthorizationViewController.m in Sources */,
 				A80F97021A89A19C00BD12C2 /* listViewController.m in Sources */,
 				A82CBAA51A98C73D00588454 /* clientViewController.m in Sources */,
-				A832499E1A8391F000E80DED /* ESTIndoorLocationViewController.m in Sources */,
 				A80F96F91A87286600BD12C2 /* noteViewController.m in Sources */,
 				A83247F61A7C543700E80DED /* AppDelegate.m in Sources */,
 				A82E7D571A84E51E000A27AE /* buildViewController.m in Sources */,
+				A86548831A9E68A200A7A7EB /* mainViewController.m in Sources */,
 				A83247F31A7C543700E80DED /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
