@@ -18,17 +18,12 @@
 // Detemine using exterior file, if YES, besure put your file named 'audioguide.json' to project.
 // if NO, app will use inner data you built in Planner feature.
 
-#define USE_AUDIOFILE_JSON  NO
+#define USE_AUDIOFILE_JSON  YES
 
-
-
-
-
-#define DISTANCE            10.0f
-
+// Distance
+#define DISTANCE            2.0f
 
 // Audio replay intervals, prevent app replays too frequently
-
 #define REPLAYINTERVAL     180
 
 // Speech Synthesizer configureation
