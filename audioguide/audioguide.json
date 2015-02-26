@@ -1,1 +1,3 @@
-{"1424877241":{"y":"-0.13","id":"1424877241","speechtext":"Test","location":"Table","x":"-1.41","description":""},"1424941488":{"y":"0.0f","id":"1424941488","speechtext":"","location":"","x":"0.0f","description":""},"1424941493":{"y":"0.0f","id":"1424941493","speechtext":"","location":"","x":"0.0f","description":""}}
+{
+    "1424877241":{"y":"-0.13","id":"1424877241","speechtext":"Audioguide integrates Estimote Indoor Location SDK and Apple AVSpeechSynthesizer Framework.","location":"Testarea","x":"-1.41","description":"Audioguide integrates Estimote Indoor Location SDK and Apple AVSpeechSynthesizer Framework."}
+}

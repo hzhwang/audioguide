@@ -9,7 +9,6 @@
 
 #import "ESTIndoorLocationManager.h"
 #import "ESTLocation.h"
-#import "ESTIndoorLocationView.h"
 #import "ESTLocationBuilder.h"
 #import "ESTConfig.h"
 
@@ -18,8 +17,9 @@
 
 @interface clientViewController ()<MFMailComposeViewControllerDelegate,ESTIndoorLocationManagerDelegate,AVSpeechSynthesizerDelegate,AVAudioSessionDelegate, AVAudioRecorderDelegate,AVAudioPlayerDelegate> {
     UIBarButtonItem *listBarButton;
+    IBOutlet UILabel *locationLabel;
 
-    IBOutlet UILabel *descriptionLabel;
+    IBOutlet UITextView *descriptionField;
     
     CGPoint currentPosition;
     NSInteger replayInterval;
@@ -28,7 +28,6 @@
 
 @property (nonatomic, strong) ESTIndoorLocationManager *manager;
 @property (nonatomic, strong) ESTLocation *location;
-@property (nonatomic, strong) IBOutlet ESTIndoorLocationView *indoorLocationView;
 @property (nonatomic, strong) NSMutableDictionary *audioItem;
 @property (nonatomic) AVAudioPlayer* player;
 
@@ -42,27 +41,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    self.indoorLocationView.backgroundColor = [UIColor clearColor];
-    
-    self.indoorLocationView.showTrace               = SHOWTRACE;
-    self.indoorLocationView.rotateOnPositionUpdate  = ROTATEONPOSITION;
-    self.indoorLocationView.showWallLengthLabels    = YES;
-    self.indoorLocationView.locationBorderColor     = [UIColor blackColor];
-    self.indoorLocationView.locationBorderThickness = 4;
-    self.indoorLocationView.doorColor               = [UIColor brownColor];
-    self.indoorLocationView.doorThickness           = 6;
-    self.indoorLocationView.traceColor              = [UIColor blueColor];
-    self.indoorLocationView.traceThickness          = 2;
-    self.indoorLocationView.wallLengthLabelsColor   = [UIColor blackColor];
-    
-    
-    // You can change the avatar using positionImage property of ESTIndoorLocationView class.
-    // self.indoorLocationView.positionImage = [UIImage imageNamed:@"name_of_your_image"];
-    
-    
-    
-    [self.indoorLocationView drawLocation:self.location];
     
     
     [self.manager startIndoorLocation:self.location];
@@ -99,15 +77,8 @@
         NSString *path = [[NSBundle mainBundle] pathForResource:@"audioguide" ofType:@"json"];
         NSData *data = [NSData dataWithContentsOfFile:path];
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-
         self.audioItem=[NSMutableDictionary dictionaryWithDictionary:dictionary];
-
-        NSLog(@"%@",dictionary);
-
     }
-    
-    
-    
 }
 
 
@@ -156,6 +127,7 @@
     utterance.voice =  voice;
     utterance.rate=SPEECHSPEED;
     
+    speechSynthesizer.delegate=self;
     
     [speechSynthesizer speakUtterance:utterance];
     isDuringSpeech=YES;
@@ -219,17 +191,21 @@
         if([self distanceBetween:currentPosition and:point]<DISTANCE) {
             
             // update location and description
-            self.title=[dic objectForKey:@"location"];
-            descriptionLabel.text=[dic objectForKey:@"description"];
+            locationLabel.text =[dic objectForKey:@"location"];
+            descriptionField.text=[dic objectForKey:@"description"];
+            
+            
+            
             
             // check if still in repeat interval, or still in speech .
             if(replayInterval>0 || isDuringSpeech==YES) {
                 return;
             }
             
-            // Check if audio file is existed
             
+            // Check if audio file is existed
             if([self isFileExists:[dic objectForKey:@"id"]]) {
+                // Play audio
                 [self play:[dic objectForKey:@"id"]];
             } else {
                 // Speech
@@ -257,6 +233,7 @@
     return fileExists;
     
 }
+
 - (void)indoorLocationManager:(ESTIndoorLocationManager *)manager
             didUpdatePosition:(ESTOrientedPoint *)position
                    inLocation:(ESTLocation *)location {
@@ -264,7 +241,6 @@
     currentPosition=CGPointMake(position.x, position.y);
     
     [self distanceCalculate];
-    [self.indoorLocationView updatePosition:position];
 }
 
 - (void)indoorLocationManager:(ESTIndoorLocationManager *)manager didFailToUpdatePositionWithError:(NSError *)error {

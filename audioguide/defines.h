@@ -20,7 +20,11 @@
 
 #define USE_AUDIOFILE_JSON  NO
 
-#define DISTANCE            1.0f
+
+
+
+
+#define DISTANCE            10.0f
 
 
 // Audio replay intervals, prevent app replays too frequently
@@ -28,7 +32,9 @@
 #define REPLAYINTERVAL     180
 
 // Speech Synthesizer configureation
-#define SPEECHLANGUAGE     @"zh-TW"
-#define SPEECHSPEED        0.2f
+#define SPEECHLANGUAGE     @"en-US"
+
+// Speech Speed.
+#define SPEECHSPEED        0.1f
 
 #endif

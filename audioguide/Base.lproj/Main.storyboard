@@ -17,53 +17,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ch-ZA-c9U" customClass="ESTIndoorLocationView">
-                                <rect key="frame" x="150" y="28" width="300" height="300"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audioguide" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hg2-tf-uj2">
+                                <rect key="frame" x="16" y="28" width="568" height="64"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="NEe-OS-fNa"/>
-                                    <constraint firstAttribute="width" constant="300" id="u9M-Sq-V0p"/>
-                                    <constraint firstAttribute="height" constant="300" id="uho-qO-JH7"/>
-                                    <constraint firstAttribute="width" constant="300" id="xRv-ha-JsB"/>
+                                    <constraint firstAttribute="height" constant="64" id="sXy-Tu-BNO"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="NEe-OS-fNa"/>
-                                        <exclude reference="xRv-ha-JsB"/>
-                                    </mask>
-                                </variation>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfs-GN-Gbo">
-                                <rect key="frame" x="150" y="336" width="300" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="55U-nK-GzN"/>
-                                    <constraint firstAttribute="height" constant="36" id="ADK-4D-2pB"/>
-                                    <constraint firstAttribute="width" constant="401" id="oK0-a0-o20"/>
-                                    <constraint firstAttribute="width" constant="300" id="zOL-ff-Aqg"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="55U-nK-GzN"/>
-                                        <exclude reference="oK0-a0-o20"/>
-                                    </mask>
-                                </variation>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Audioguide integrates Estimote Indoor Location SDK and Apple AVSpeechSynthesizer Framework." translatesAutoresizingMaskIntoConstraints="NO" id="Qri-iu-39d">
+                                <rect key="frame" x="16" y="107" width="568" height="473"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Gfs-GN-Gbo" firstAttribute="top" secondItem="7ch-ZA-c9U" secondAttribute="bottom" constant="8" id="JQr-bq-iRd"/>
-                            <constraint firstAttribute="centerX" secondItem="Gfs-GN-Gbo" secondAttribute="centerX" id="qrg-jK-PTT"/>
-                            <constraint firstAttribute="centerX" secondItem="7ch-ZA-c9U" secondAttribute="centerX" id="sQO-2w-S2R"/>
-                            <constraint firstItem="7ch-ZA-c9U" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="uwN-g9-7L6"/>
+                            <constraint firstItem="Qri-iu-39d" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Cd9-yG-X4a"/>
+                            <constraint firstItem="hg2-tf-uj2" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Dnu-ul-eV5"/>
+                            <constraint firstItem="hg2-tf-uj2" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="Qe6-IA-Bsj"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Qri-iu-39d" secondAttribute="bottom" constant="20" id="bbz-34-pBd"/>
+                            <constraint firstItem="hg2-tf-uj2" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="bi3-p9-IfD"/>
+                            <constraint firstItem="Qri-iu-39d" firstAttribute="top" secondItem="hg2-tf-uj2" secondAttribute="bottom" constant="15" id="nx2-nx-BB0"/>
+                            <constraint firstItem="Qri-iu-39d" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="p9T-gq-aOJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jOA-Zj-hXg"/>
                     <connections>
-                        <outlet property="descriptionLabel" destination="Gfs-GN-Gbo" id="K06-F9-G8m"/>
-                        <outlet property="indoorLocationView" destination="7ch-ZA-c9U" id="aQM-C0-cPa"/>
+                        <outlet property="descriptionField" destination="Qri-iu-39d" id="Mg7-qg-h6F"/>
+                        <outlet property="locationLabel" destination="hg2-tf-uj2" id="2t6-Qe-vYi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
