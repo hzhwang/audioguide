@@ -2,12 +2,12 @@
 
 Audioguide integrates Estimote Indoor Location SDK and Apple AVSpeechSynthesizer Framework. Audioguide consist of two part: Planner mode and Visitor mode.
 
-## Planner mode
+### Planner mode
 
 Planner mode help you create audio guide at field, you can use build-in record
 function to record contents, or write speech text, AVSpeechSynthesizer Framework will read this speech text when using Visitor mode.
 
-## Visitor mode
+### Visitor mode
 
 Visitor mode let you experience Audioguide integrating Estimote Indoor Location
 SDK. When you come near defined spot, Audioguide will automatically play audio
