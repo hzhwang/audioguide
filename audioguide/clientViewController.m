@@ -2,9 +2,7 @@
 //  clientViewController.m
 //  audioguide
 //
-//  Created by hzhwang on 2015/01/31.
-//  Copyright (c) 2015 Company. All rights reserved.
-//
+
 
 
 #import "clientViewController.h"
@@ -18,7 +16,9 @@
 #import "defines.h"
 
 
-@interface clientViewController ()<ESTIndoorLocationManagerDelegate,AVSpeechSynthesizerDelegate,AVAudioSessionDelegate, AVAudioRecorderDelegate,AVAudioPlayerDelegate> {
+@interface clientViewController ()<MFMailComposeViewControllerDelegate,ESTIndoorLocationManagerDelegate,AVSpeechSynthesizerDelegate,AVAudioSessionDelegate, AVAudioRecorderDelegate,AVAudioPlayerDelegate> {
+    UIBarButtonItem *listBarButton;
+
     IBOutlet UILabel *descriptionLabel;
     
     CGPoint currentPosition;
@@ -91,14 +91,47 @@
     return self;
 }
 - (void)loadData {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    NSData *data = [defaults objectForKey:AUDIO_STORAGE_KEY];
-    self.audioItem=[NSMutableDictionary dictionaryWithDictionary:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
+    if(USE_AUDIOFILE_JSON==NO) {
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        NSData *data = [defaults objectForKey:AUDIO_STORAGE_KEY];
+        self.audioItem=[NSMutableDictionary dictionaryWithDictionary:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
+    } else {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"audioguide" ofType:@"json"];
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+
+        self.audioItem=[NSMutableDictionary dictionaryWithDictionary:dictionary];
+
+        NSLog(@"%@",dictionary);
+
+    }
+    
+    
+    
+}
+
+
+- (void)export {
+    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:self.audioItem options:0 error:nil];
+    if (![MFMailComposeViewController canSendMail]) {
+        return;
+    }
+    MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+    [controller setMailComposeDelegate:self];
+    
+    [controller addAttachmentData:jsonData mimeType:@"text/plain" fileName:@"audio.json"];
+    [self.navigationController presentViewController:controller animated:YES completion:nil];
+}
+- ( void )mailComposeController:( MFMailComposeViewController* )controller didFinishWithResult:( MFMailComposeResult )result error:( NSError* )error {
+
+    [controller dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    listBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Export" style:UIBarButtonItemStylePlain target:self action:@selector(export)];
+    self.navigationItem.rightBarButtonItem = listBarButton;
     
     replayInterval=0;
     
@@ -183,7 +216,7 @@
         
         CGPoint point=CGPointMake([[dic objectForKey:@"x"] floatValue],[[dic objectForKey:@"y"] floatValue]);
         
-        if([self distanceBetween:currentPosition and:point]<MINDISTANCE) {
+        if([self distanceBetween:currentPosition and:point]<DISTANCE) {
             
             // update location and description
             self.title=[dic objectForKey:@"location"];

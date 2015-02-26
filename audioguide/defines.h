@@ -2,9 +2,8 @@
 //  defines.h
 //  audioguide
 //
-//  Created by hzhwang on 2015/01/31.
-//  Copyright (c) 2015 Company. All rights reserved.
-//
+
+
 
 
 #ifndef audioguide_defines_h
@@ -16,10 +15,15 @@
 #define AUDIO_STORAGE_KEY @"audio_storage_key"
 
 
-#define MINDISTANCE        1.0f
+// Detemine using exterior file, if YES, besure put your file named 'audioguide.json' to project.
+// if NO, app will use inner data you built in Planner feature.
+
+#define USE_AUDIOFILE_JSON  NO
+
+#define DISTANCE            1.0f
 
 
-// Audio replay intervals, prevent app replays too frequently. (second)
+// Audio replay intervals, prevent app replays too frequently
 
 #define REPLAYINTERVAL     180
 
