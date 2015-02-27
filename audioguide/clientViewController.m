@@ -15,8 +15,7 @@
 #import "defines.h"
 
 
-@interface clientViewController ()<MFMailComposeViewControllerDelegate,ESTIndoorLocationManagerDelegate,AVSpeechSynthesizerDelegate,AVAudioSessionDelegate, AVAudioRecorderDelegate,AVAudioPlayerDelegate> {
-    UIBarButtonItem *listBarButton;
+@interface clientViewController ()<ESTIndoorLocationManagerDelegate,AVSpeechSynthesizerDelegate,AVAudioSessionDelegate, AVAudioRecorderDelegate,AVAudioPlayerDelegate> {
     IBOutlet UILabel *locationLabel;
 
     IBOutlet UITextView *descriptionField;
@@ -82,27 +81,10 @@
 }
 
 
-- (void)export {
-    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:self.audioItem options:0 error:nil];
-    if (![MFMailComposeViewController canSendMail]) {
-        return;
-    }
-    MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
-    [controller setMailComposeDelegate:self];
-    
-    [controller addAttachmentData:jsonData mimeType:@"text/plain" fileName:@"audio.json"];
-    [self.navigationController presentViewController:controller animated:YES completion:nil];
-}
-- ( void )mailComposeController:( MFMailComposeViewController* )controller didFinishWithResult:( MFMailComposeResult )result error:( NSError* )error {
-
-    [controller dismissViewControllerAnimated:YES completion:NULL];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    listBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Export" style:UIBarButtonItemStylePlain target:self action:@selector(export)];
-    self.navigationItem.rightBarButtonItem = listBarButton;
     
     replayInterval=0;
     

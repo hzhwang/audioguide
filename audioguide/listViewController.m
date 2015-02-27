@@ -9,8 +9,8 @@
 #import "noteViewController.h"
 #import "defines.h"
 
-@interface listViewController() <UITableViewDelegate, UITableViewDataSource> {
-    UIBarButtonItem *editBarButton;
+@interface listViewController() <MFMailComposeViewControllerDelegate,UITableViewDelegate, UITableViewDataSource> {
+    UIBarButtonItem *exportBarButton;
     NSInteger selectedRow;
 }
 
@@ -26,19 +26,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    editBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editSwitch)];
-    self.navigationItem.rightBarButtonItem = editBarButton;
+    exportBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Export" style:UIBarButtonItemStylePlain target:self action:@selector(export)];
+    self.navigationItem.rightBarButtonItem = exportBarButton;
     
     selectedRow=-1;
 }
 
-- (void)editSwitch {
-    if([self.tableView isEditing]==YES) {
-        [self.tableView setEditing:NO animated:YES];
-    } else {
-        [self.tableView setEditing:YES animated:YES];
+- (void)export {
+    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:self.audioItem options:0 error:nil];
+    if (![MFMailComposeViewController canSendMail]) {
+        return;
     }
+    MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+    [controller setMailComposeDelegate:self];
+    
+    [controller addAttachmentData:jsonData mimeType:@"text/plain" fileName:@"audio.json"];
+    [self.navigationController presentViewController:controller animated:YES completion:nil];
 }
+- ( void )mailComposeController:( MFMailComposeViewController* )controller didFinishWithResult:( MFMailComposeResult )result error:( NSError* )error {
+    
+    [controller dismissViewControllerAnimated:YES completion:NULL];
+}
+
 
 - (void)loadData {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];

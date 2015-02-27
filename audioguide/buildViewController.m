@@ -90,7 +90,6 @@
     // self.indoorLocationView.positionImage = [UIImage imageNamed:@"name_of_your_image"];
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [self.manager startIndoorLocation:self.location];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -121,12 +120,12 @@
     listBarButton = [[UIBarButtonItem alloc] initWithTitle:@"List" style:UIBarButtonItemStylePlain target:self action:@selector(list)];
     self.navigationItem.rightBarButtonItem = listBarButton;
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"location" ofType:@"json"];
-    NSString *content = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     
     self.manager = [[ESTIndoorLocationManager alloc] init];
     self.manager.delegate = self;
     
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"location" ofType:@"json"];
+    NSString *content = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     ESTLocation *location = [ESTLocationBuilder parseFromJSON:content];
     self.location = location;
 }

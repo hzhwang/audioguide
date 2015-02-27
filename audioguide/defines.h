@@ -18,7 +18,7 @@
 // Detemine using exterior file, if YES, besure put your file named 'audioguide.json' to project.
 // if NO, app will use inner data you built in Planner feature.
 
-#define USE_AUDIOFILE_JSON  YES
+#define USE_AUDIOFILE_JSON  NO
 
 // Distance
 #define DISTANCE            2.0f
